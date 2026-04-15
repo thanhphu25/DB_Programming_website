@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classicmodels Analytics Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <h1>Classicmodels Dashboard</h1>
+        <p>Tim kiem va thong ke theo khach hang, thoi gian, mat hang.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Tim Kiem</h2>
+        <div class="grid-3">
+          <div>
+            <label for="customerSearch">Khach hang</label>
+            <input id="customerSearch" type="text" placeholder="Nhap ten khach hang..." />
+            <button id="btnSearchCustomers">Tim khach hang</button>
+          </div>
+          <div>
+            <label for="productSearch">Mat hang</label>
+            <input id="productSearch" type="text" placeholder="Nhap ten san pham..." />
+            <button id="btnSearchProducts">Tim mat hang</button>
+          </div>
+          <div>
+            <label for="fromDate">Khoang thoi gian don hang</label>
+            <div class="date-row">
+              <input id="fromDate" type="date" />
+              <input id="toDate" type="date" />
+            </div>
+            <button id="btnSearchOrders">Tim don hang</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Ket Qua Tim Kiem</h2>
+        <div class="table-wrap">
+          <table id="resultTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Thong Ke</h2>
+        <div class="actions">
+          <button id="btnCustomerStats">Top khach hang</button>
+          <button id="btnTimeStats">Theo thoi gian</button>
+          <button id="btnProductStats">Top mat hang</button>
+          <select id="timeGroupBy">
+            <option value="month">Theo thang</option>
+            <option value="quarter">Theo quy</option>
+            <option value="year">Theo nam</option>
+          </select>
+        </div>
+        <canvas id="statsChart" height="120"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Pivot Table</h2>
+        <p>Keo tha de xoay du lieu theo khach hang, thoi gian, mat hang.</p>
+        <div id="pivotOutput"></div>
+      </section>
+
+      <section class="card">
+        <h2>Chatbot Hoi Dap (Demo)</h2>
+        <div class="chatbox">
+          <input
+            id="chatQuestion"
+            type="text"
+            placeholder="Vi du: top khach hang doanh thu cao"
+          />
+          <button id="btnAsk">Hoi</button>
+        </div>
+        <pre id="chatAnswer"></pre>
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
